@@ -19,6 +19,7 @@ var getRepoName = function () {
 }
 
 var getRepoIssues = function(repo) {
+    //format the github api url
     var apiUrl = "https://api.github.com/repos/" + repo + "/issues?direction=asc";
 
     // make a get request to url
@@ -72,6 +73,7 @@ var displayIssues = function(issues) {
 
         //append to container
         issueEl.appendChild(typeEl);
+        //append to the dom
         issueContainerEl.appendChild(issueEl);
     }
 }
@@ -81,7 +83,7 @@ var displayWarning = function(repo) {
     limitWarningEl.textContent = "To see more than 30 issues, visit ";
 
     var linkEl = document.createElement("a");
-    linkEl.textContent = "This Repo on GitHub.com";
+    linkEl.textContent = "GitHub.com";
     linkEl.setAttribute("href", "https://github.com/" + repo + "/issues");
     linkEl.setAttribute("target", "_blank");
 
@@ -89,5 +91,4 @@ var displayWarning = function(repo) {
     limitWarningEl.appendChild(linkEl);
 }
 
-getRepoIssues();
 getRepoName();
